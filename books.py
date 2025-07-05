@@ -12,9 +12,14 @@ def read_api():
 def createBook():
     pass
 
-@varun.post()
-def updateBook():
-    pass
+@varun.post("")
+def updateBook(book_id: UUID, book: BOOK):
+    counter = 0
+    for x in books:
+        if x.id == book_id:
+            books[counter - 1] = book
+            return books[counter - 1]
+    raise htt
 
 @varun.del()
 def deleteBook():
